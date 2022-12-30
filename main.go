@@ -36,6 +36,7 @@ import (
 	_ "m7s.live/plugin/snap/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
+	_ "m7s.live/plugin/transcode/v4"
 )
 
 var (
