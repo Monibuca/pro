@@ -1,0 +1,93 @@
+[
+ {
+  "ID": "0",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-14T20:41:45.367059177+08:00",
+  "UpdateTime": "2023-01-14T20:41:45.367059247+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "20.100.181.95:65388"
+ },
+ {
+  "ID": "867658902567",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-14T01:26:01.857917106+08:00",
+  "UpdateTime": "2023-01-14T01:26:01.857917176+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "95.216.117.17:63814"
+ },
+ {
+  "ID": "100",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-13T08:10:27.252725072+08:00",
+  "UpdateTime": "2023-01-15T06:05:35.252210825+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "80.94.93.190:59855"
+ },
+ {
+  "ID": "45211211144",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-12T04:53:53.389997114+08:00",
+  "UpdateTime": "2023-01-12T04:53:53.389997184+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "23.146.240.86:49168"
+ },
+ {
+  "ID": "421937166",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-12T12:10:45.562783779+08:00",
+  "UpdateTime": "2023-01-15T05:52:45.007964855+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "212.83.146.70:4040"
+ },
+ {
+  "ID": ".",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-13T08:05:10.408259006+08:00",
+  "UpdateTime": "2023-01-13T08:05:10.408259086+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "103.145.13.113:12554"
+ },
+ {
+  "ID": "me",
+  "Name": "",
+  "Manufacturer": "",
+  "Model": "",
+  "Owner": "",
+  "RegisterTime": "2023-01-15T11:42:33.072509618+08:00",
+  "UpdateTime": "2023-01-15T11:42:33.072509688+08:00",
+  "LastKeepaliveAt": "0001-01-01T00:00:00Z",
+  "Status": "REGISTER",
+  "Channels": null,
+  "NetAddr": "51.89.115.182:4040"
+ }
+]

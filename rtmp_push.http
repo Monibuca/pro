@@ -1,0 +1,60 @@
+GET http://{{host}}/stop?livePath=live/aaa&flag=7
+
+###
+
+
+# 获取密钥
+GET http://{{host}}/getkey?livePath=live/aaa
+
+
+###
+
+
+
+# 开启转码等
+POST http://{{host}}/process
+Content-Type: application/json
+
+{
+  "StreamPath": "live/test",
+  "Trans": {
+    "FromTrack": "h264",
+    "ToTrack": "h265",
+    "Args": {
+      "-vcodec": "hevc"
+    }
+  },
+  "Encrypt": {
+    "FromTrack": "h264"
+  },
+  "RtmpPush": {
+    "Target": "rtmp://aliyunlive.droolx.cn/live/aaa",
+    "FromTrack": "h264_enc"
+  }
+}
+
+###
+
+# 播放地址  http://playali.droolx.cn/live/test.flv ?
+
+# 推流
+# rtmp 推阿里云
+#GET http://{{host}}/rtmp/api/push?target=rtmp://pushjp.droolx.cn/live/test3&streamPath=live/test
+GET http://{{host}}/rtmp/api/push?target=rtmp://aliyunlive.droolx.cn/live/test?auth_key=1674790351-0-0-1767be2a08ce3e1bbfc5eb7327dd5ed8&streamPath=live/test
+
+###
+
+GET http://{{host}}/rtmp/api/push?target=rtmp://aliyunlive.droolx.cn/live/test&streamPath=live/test
+
+?vts=h264_enc
+
+###
+
+GET http://{{host}}/rtmp/api/push?target=23.237.196.99/live/test&streamPath=live/test0
+
+
+###
+
+GET http://{{host}}/rtmp/api/push?target=103.91.211.120/live/test&streamPath=live/test0
+
+

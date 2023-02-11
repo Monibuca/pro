@@ -45,12 +45,13 @@ var (
 )
 
 func main() {
-	fmt.Println("start monibuca pro version:", version)
+	fmt.Println("start monibuca pro version111:", version)
 	conf := flag.String("c", "config.yaml", "config file")
 	flag.Parse()
 	//http.HandleFunc("/process", api.Process)
 	//http.HandleFunc("/getkey", api.GetKey)
 	//http.HandleFunc("/stop", api.Stop)
+
 	ctx, cancel := context.WithCancel(context.WithValue(context.Background(), "version", version))
 	go util.WaitTerm(cancel)
 	engine.Run(ctx, *conf)

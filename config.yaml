@@ -1,35 +1,27 @@
+#key = md5(密钥+流名称)
+#iv = md5(流名称）前一半
 global:
   loglevel: info # 日志级别，可选值：debug,info,warn,error,panic,fatal
   http:
     listenaddr: :8080 # api端口
-  console:
-    secret: "0ca642e6e89cbf8cea9bc6c18a0d7a43"
 
 rtmp:
   tcp:
     listenaddr: :1935 # rtmp监听端口
   chunksize: 65535
-rtsp:
-  listenaddr: :554  # rtsp 监听端口
 
-transcode: # 转码设置
-  ffmpeg: ""  # 指定ffmpeg路径，如果在path里可以不用指定
-  #hwaccel:  qsv  # 硬件加速配置
-  rules:
-    - filter: .*  # 视频流过滤
-      from: h265
-      to: h264
-      args: # 额外参数
-        -vcodec:  hevc
-
+# rtmp://23.237.196.99/live/test
+# aliyunlive.droolx.cn
 cdn:
-  host: aliyunlive.droolx.cn  # cdn域名
-  pushkey: Fvs6CHQBrMdMoGbi # cdn 加密key
+  host: pushalkjhdfasdf.shnhyl.com.cn  # cdn域名
+  pushkey: 1XjZreXdEtJYg6hr # cdn 加密key
   expiretime: 3600
   fromtrack: "h264_enc"
 
-
 crypto: # 加密设置
-  encryptlen: 1024 # 加密字节长度
   filter: .*  # 流过滤
   fromtrack: .* # track 过滤
+  key:
+    key: sfafxxsfsdf  # 加密key
+    
+    
