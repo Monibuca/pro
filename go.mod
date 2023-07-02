@@ -1,26 +1,28 @@
 module m7s.live/pro
 
-go 1.18
+go 1.19
 
 require (
-	m7s.live/engine/v4 v4.11.4
-	m7s.live/plugin/debug/v4 v4.0.0-20220506113031-34f3a736ceb2
-	m7s.live/plugin/edge/v4 v4.0.3
-	m7s.live/plugin/fmp4/v4 v4.0.0-20221126151227-22a117d1b75e
-	m7s.live/plugin/gb28181/v4 v4.1.7
-	m7s.live/plugin/hdl/v4 v4.1.1
-	m7s.live/plugin/hls/v4 v4.1.1-0.20230131030956-4e2e54ab2dc8
-	m7s.live/plugin/hook/v4 v4.0.1
-	m7s.live/plugin/jessica/v4 v4.0.2
-	m7s.live/plugin/logrotate/v4 v4.0.3
-	m7s.live/plugin/preview/v4 v4.0.1
-	m7s.live/plugin/record/v4 v4.1.0
-	m7s.live/plugin/room/v4 v4.0.2
-	m7s.live/plugin/rtmp/v4 v4.1.3
-	m7s.live/plugin/rtsp/v4 v4.0.9
-	m7s.live/plugin/snap/v4 v4.0.1
-	m7s.live/plugin/webrtc/v4 v4.0.4
-	m7s.live/plugin/webtransport/v4 v4.0.1
+	go.uber.org/zap v1.24.0
+	m7s.live/engine/v4 v4.13.5
+	m7s.live/plugin/debug/v4 v4.0.0
+	m7s.live/plugin/edge/v4 v4.0.5
+	m7s.live/plugin/fmp4/v4 v4.0.3
+	m7s.live/plugin/gb28181/v4 v4.3.6
+	m7s.live/plugin/hdl/v4 v4.1.6
+	m7s.live/plugin/hls/v4 v4.3.1
+	m7s.live/plugin/hook/v4 v4.0.2
+	m7s.live/plugin/jessica/v4 v4.2.0
+	m7s.live/plugin/logrotate/v4 v4.0.4
+	m7s.live/plugin/monitor/v4 v4.0.3
+	m7s.live/plugin/preview/v4 v4.1.2
+	m7s.live/plugin/record/v4 v4.3.7
+	m7s.live/plugin/room/v4 v4.0.10
+	m7s.live/plugin/rtmp/v4 v4.2.2
+	m7s.live/plugin/rtsp/v4 v4.2.3
+	m7s.live/plugin/snap/v4 v4.0.6
+	m7s.live/plugin/webrtc/v4 v4.1.7
+	m7s.live/plugin/webtransport/v4 v4.0.6
 )
 
 require (

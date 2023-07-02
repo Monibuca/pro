@@ -1,27 +1,50 @@
 #key = md5(密钥+流名称)
 #iv = md5(流名称）前一半
 global:
-  loglevel: info # 日志级别，可选值：debug,info,warn,error,panic,fatal
+  loglevel: debug # 日志级别，可选值：debug,info,warn,error,panic,fatal
   http:
-    listenaddr: :8080 # api端口
+    listenaddr: :8082 # api端口
 
 rtmp:
   tcp:
-    listenaddr: :1935 # rtmp监听端口
+    listenaddr: :1936 # rtmp监听端口
   chunksize: 65535
 
 # rtmp://23.237.196.99/live/test
 # aliyunlive.droolx.cn
 cdn:
-  host: pushalkjhdfasdf.shnhyl.com.cn  # cdn域名
+  # enable: false
+  host: test.monibuca.com  # cdn域名
   pushkey: 1XjZreXdEtJYg6hr # cdn 加密key
   expiretime: 3600
-  fromtrack: "h264_enc"
-
+  fromtrack: h264_enc
+snappro:
+  libpath: /Users/dexter/jessibuca/ffmpeg/obj/lib
 crypto: # 加密设置
+  # enable: false
   filter: .*  # 流过滤
   fromtrack: .* # track 过滤
   key:
     key: sfafxxsfsdf  # 加密key
-    
-    
+transcode:
+  # enable: false
+  libpath: ./lib
+  hwaccel: videotoolbox
+  logpath: logs
+  rules:
+    -
+      from: h265
+      to: h264
+      args:
+        -tune: zerolatency
+        # 指定分辨率
+        # -s 320x240
+        # 指定码率
+        # -b 1500
+        # 动态码率
+        # -qscale 4
+        -vcodec: h264_videotoolbox
+        -preset: ultrafast
+    -
+      from: aac
+      to: pcma
