@@ -2,33 +2,33 @@
 #iv = md5(流名称）前一半
 global:
   loglevel: debug # 日志级别，可选值：debug,info,warn,error,panic,fatal
-  http:
-    listenaddr: :8082 # api端口
+  # http:
+  #   listenaddr: :8082 # api端口
 
 rtmp:
-  tcp:
-    listenaddr: :1936 # rtmp监听端口
-  chunksize: 65535
+  # tcp:
+  #   listenaddr: :1936 # rtmp监听端口
+  # chunksize: 65535
 
 # rtmp://23.237.196.99/live/test
 # aliyunlive.droolx.cn
 cdn:
-  # enable: false
+  enable: false
   host: test.monibuca.com  # cdn域名
   pushkey: 1XjZreXdEtJYg6hr # cdn 加密key
   expiretime: 3600
   fromtrack: h264_enc
 snappro:
-  libpath: /Users/dexter/jessibuca/ffmpeg/obj/lib
+  libpath: /usr/local/lib
 crypto: # 加密设置
-  # enable: false
+  enable: false
   filter: .*  # 流过滤
   fromtrack: .* # track 过滤
   key:
     key: sfafxxsfsdf  # 加密key
 transcode:
   # enable: false
-  libpath: ./lib
+  libpath: /usr/local/lib
   hwaccel: videotoolbox
   logpath: logs
   rules:
@@ -48,3 +48,5 @@ transcode:
     -
       from: aac
       to: pcma
+webrtc:
+  publicip: 127.0.0.1

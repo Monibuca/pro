@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	go.uber.org/zap v1.24.0
-	m7s.live/engine/v4 v4.13.5
+	m7s.live/engine/v4 v4.13.6-0.20230705011505-87baa46e3fac
 	m7s.live/plugin/debug/v4 v4.0.0
 	m7s.live/plugin/edge/v4 v4.0.5
 	m7s.live/plugin/fmp4/v4 v4.0.3
@@ -21,21 +21,26 @@ require (
 	m7s.live/plugin/rtmp/v4 v4.2.2
 	m7s.live/plugin/rtsp/v4 v4.2.3
 	m7s.live/plugin/snap/v4 v4.0.6
-	m7s.live/plugin/webrtc/v4 v4.1.7
+	m7s.live/plugin/webrtc/v4 v4.1.8-0.20230705020304-aa42ec62847a
 	m7s.live/plugin/webtransport/v4 v4.0.6
 )
 
 require (
+	github.com/aler9/gortsplib/v2 v2.2.2 // indirect
 	github.com/cnotch/ipchub v1.1.0 // indirect
+	github.com/denisbrodbeck/machineid v1.0.1 // indirect
 	github.com/mcuadros/go-defaults v1.2.0 // indirect
+	github.com/pion/transport/v2 v2.0.2 // indirect
+	github.com/pion/udp/v2 v2.0.1 // indirect
 	github.com/quic-go/qtls-go1-18 v0.2.0 // indirect
 	github.com/quic-go/qtls-go1-19 v0.2.0 // indirect
 	github.com/quic-go/qtls-go1-20 v0.1.0 // indirect
 	github.com/quic-go/quic-go v0.32.0 // indirect
+	github.com/yapingcat/gomedia v0.0.0-20230426092936-387031404274 // indirect
 )
 
 require (
-	github.com/aler9/gortsplib v0.0.0-20221120213348-150f16ae6567
+	github.com/aler9/gortsplib v1.0.1
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca // indirect
 	github.com/edgeware/mp4ff v0.30.1 // indirect
 	github.com/ghettovoice/gosip v0.0.0-20221121090201-9a2ed2233b6d // indirect
@@ -59,8 +64,8 @@ require (
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/onsi/ginkgo/v2 v2.8.0 // indirect
 	github.com/pion/datachannel v1.5.5 // indirect
-	github.com/pion/dtls/v2 v2.2.4 // indirect
-	github.com/pion/ice/v2 v2.3.0 // indirect
+	github.com/pion/dtls/v2 v2.2.6 // indirect
+	github.com/pion/ice/v2 v2.3.1 // indirect
 	github.com/pion/interceptor v0.1.12 // indirect
 	github.com/pion/logging v0.2.2 // indirect
 	github.com/pion/mdns v0.0.7 // indirect
@@ -75,7 +80,7 @@ require (
 	github.com/pion/transport v0.14.1 // indirect
 	github.com/pion/turn/v2 v2.1.0 // indirect
 	github.com/pion/udp v0.1.4 // indirect
-	github.com/pion/webrtc/v3 v3.1.55 // indirect
+	github.com/pion/webrtc/v3 v3.1.56 // indirect
 	github.com/power-devops/perfstat v0.0.0-20221212215047-62379fc7944b // indirect
 	github.com/q191201771/naza v0.30.9 // indirect
 	github.com/quangngotan95/go-m3u8 v0.1.0 // indirect
@@ -90,15 +95,14 @@ require (
 	github.com/zhangpeihao/goamf v0.0.0-20140409082417-3ff2c19514a8 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.9.0 // indirect
-	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/exp v0.0.0-20230206171751-46f607a40771 // indirect
 	golang.org/x/mod v0.8.0 // indirect
-	golang.org/x/net v0.6.0 // indirect
+	golang.org/x/net v0.9.0 // indirect
 	golang.org/x/sync v0.1.0 // indirect
-	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/term v0.5.0 // indirect
-	golang.org/x/text v0.7.0 // indirect
-	golang.org/x/tools v0.5.0 // indirect
+	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/term v0.7.0 // indirect
+	golang.org/x/text v0.9.0 // indirect
+	golang.org/x/tools v0.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
