@@ -15,3 +15,5 @@ record
 # Dependency directories (remove the comment below to include it)
 # vendor/
 .m7s
+fatal
+shutdown.sh

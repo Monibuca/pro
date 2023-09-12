@@ -1,0 +1,8 @@
+transcode:
+  hwaccel: videotoolbox
+  rules:
+    -
+      from: h264
+      to: h265
+      encoder: hevc
+      decoder: h264
