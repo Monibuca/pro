@@ -1,8 +1,14 @@
 transcode:
-  hwaccel: videotoolbox
+  # hwaccel: videotoolbox
   rules:
     -
-      from: h264
-      to: h265
-      encoder: hevc
-      decoder: h264
+      from: 
+        track: h264
+        codec: h264
+      to: 
+        - 
+          track: h265
+          codec: hevc
+          args:
+            preset: ultrafast
+            tune: zerolatency

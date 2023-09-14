@@ -2,8 +2,8 @@ package main
 
 //go:generate go run gen.go $debug
 
-/* 
-███    ███  ██████  ███    ██ 👑 ██████  ██    ██  ██████  █████ 
+/*
+███    ███  ██████  ███    ██ 👑 ██████  ██    ██  ██████  █████
 ████  ████ ██    ██ ████   ██ ██ ██   ██ ██    ██ ██      ██   ██
 ██ ████ ██ ██    ██ ██ ██  ██ ██ ██████  ██    ██ ██      ███████
 ██  ██  ██ ██    ██ ██  ██ ██ ██ ██   ██ ██    ██ ██      ██   ██
@@ -17,6 +17,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"time"
 
 	"m7s.live/engine/v4"
 	"m7s.live/engine/v4/util"
@@ -35,6 +36,7 @@ import (
 	_ "m7s.live/plugin/rtsp/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
+
 	// _ "m7s.live/plugin/snappro/v4"
 	_ "m7s.live/plugin/transcode/v4"
 )
@@ -47,7 +49,9 @@ func main() {
 	fmt.Println("start monibuca pro version:", version)
 	conf := flag.String("c", "config.yaml", "config file")
 	flag.Parse()
-	ctx, cancel := context.WithCancel(context.WithValue(context.Background(), "version", version))
+	_ctx := context.WithValue(context.Background(), "version", version)
+	ctx, cancel := context.WithTimeout(_ctx, time.Hour)
+	// ctx, cancel := context.WithCancel(_ctx)
 	go util.WaitTerm(cancel)
 	engine.Run(ctx, *conf)
 }
