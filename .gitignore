@@ -17,3 +17,5 @@ record
 .m7s
 fatal
 shutdown.sh
+dump
+*.db

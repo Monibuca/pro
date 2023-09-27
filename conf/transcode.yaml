@@ -1,0 +1,19 @@
+global:
+  # loglevel: trace
+
+transcode:
+  rules:
+    - 
+      useprocess: true
+      from: 
+        track: h264
+        codec: h264
+      to: 
+        - 
+          track: h265
+          codec: hevc
+        -
+          track: h264_360p
+          codec: h264
+          args:  -s 640x360
+          # args: -crf 24 -preset ultrafast -tune zerolatency
