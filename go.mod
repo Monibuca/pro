@@ -4,20 +4,20 @@ go 1.20
 
 require (
 	go.uber.org/zap v1.26.0 // indirect
-	m7s.live/engine/v4 v4.13.13-0.20230927051738-b604cdd2ebe9
+	m7s.live/engine/v4 v4.13.13-0.20231012054908-d822e502a0b1
 	m7s.live/plugin/debug/v4 v4.0.1
-	m7s.live/plugin/gb28181/v4 v4.4.3-0.20230925062259-90901dc1ada5
+	m7s.live/plugin/gb28181/v4 v4.4.3-0.20230929013915-8f6ac6a40c5e
 	m7s.live/plugin/hdl/v4 v4.1.8
 	m7s.live/plugin/hls/v4 v4.3.5
 	m7s.live/plugin/hook/v4 v4.0.2
 	m7s.live/plugin/jessica/v4 v4.2.1
 	m7s.live/plugin/logrotate/v4 v4.0.4
 	m7s.live/plugin/preview/v4 v4.1.2
-	m7s.live/plugin/record/v4 v4.4.4-0.20230921042847-1de72b595f7f
+	m7s.live/plugin/record/v4 v4.4.4-0.20230928005336-19bdc05f7653
 	m7s.live/plugin/room/v4 v4.0.11
-	m7s.live/plugin/rtmp/v4 v4.2.7-0.20230921102304-762bcea72633
+	m7s.live/plugin/rtmp/v4 v4.2.7-0.20230928005448-7c3a01385364
 	m7s.live/plugin/rtsp/v4 v4.2.10
-	m7s.live/plugin/webrtc/v4 v4.2.1
+	m7s.live/plugin/webrtc/v4 v4.2.2-0.20231003031026-6be7303e501d
 	m7s.live/plugin/webtransport/v4 v4.0.8
 )
 
@@ -112,7 +112,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
-	m7s.live/plugin/ps/v4 v4.1.2 // indirect
+	m7s.live/plugin/ps/v4 v4.1.3 // indirect
 )
 
 replace m7s.live/plugin/transcode/v4 => ../plugin-transcode

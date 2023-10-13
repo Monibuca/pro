@@ -1,0 +1,1 @@
+import{S as e,a3 as r}from"./vue-12defb16.js";import{a0 as o}from"./index-c0a17768.js";import"./dayjs-4778c158.js";import"./mockjs-890b569b.js";const t={};function c(n,a){return e(),r("p",null,"报警查询")}const f=o(t,[["render",c]]);export{f as default};
