@@ -1,17 +1,16 @@
 global:
-  # loglevel: trace
+  loglevel: debug
 
 transcode:
   rules:
     - 
-      useprocess: true
       from: 
         track: h264
         codec: h264
       to: 
-        - 
-          track: h265
-          codec: hevc
+        # - 
+        #   track: h265
+        #   codec: hevc
         -
           track: h264_360p
           codec: h264

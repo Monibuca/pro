@@ -70,7 +70,7 @@ func main() {
 	conf := flag.String("c", "config.yaml", "config file")
 	flag.Parse()
 	_ctx := context.WithValue(context.Background(), "version", version)
-	ctx, cancel := context.WithTimeout(_ctx, time.Hour)
+	ctx, cancel := context.WithTimeout(_ctx, 3*time.Hour)
 	// ctx, cancel := context.WithCancel(_ctx)
 	go util.WaitTerm(cancel)
 	engine.Run(ctx, *conf)
