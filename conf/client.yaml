@@ -1,18 +1,18 @@
 global:
-  disableall: true
+  # disableall: true
   loglevel: debug
-  http:
-    listenaddr: :8082
+  # http:
+  #   listenaddr: :8082
 cascadeclient:
-  enable: true
+  # enable: true
   publish:
     delayclosetimeout: 10s
-  server: localhost:44944
+  server: 42.193.7.166:44944
   pull:
     enableregexp: true
     pullonsub:
       .*: m7s://$0
-hdl:
-  enable: true
-preview:
-  enable: true
+# hdl:
+#   enable: true
+# preview:
+#   enable: true

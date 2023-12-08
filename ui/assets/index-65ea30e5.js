@@ -1,1 +1,0 @@
-import{U as e,V as r}from"./vue-0f3866c3.js";import{V as o}from"./index-0f1216c0.js";import"./dayjs-4778c158.js";import"./mockjs-890b569b.js";const t={};function c(n,s){return e(),r("p",null,"拉流代理")}const f=o(t,[["render",c]]);export{f as default};
