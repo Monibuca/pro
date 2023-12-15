@@ -1,0 +1,1 @@
+import{U as e,V as r}from"./vue-c6b19427.js";import{N as o}from"./index-aad18627.js";import"./dayjs-4778c158.js";import"./mockjs-890b569b.js";const t={};function c(n,s){return e(),r("p",null,"国标级联")}const f=o(t,[["render",c]]);export{f as default};

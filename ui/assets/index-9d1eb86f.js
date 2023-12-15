@@ -1,1 +1,0 @@
-import{U as e,V as r}from"./vue-c6b19427.js";import{V as o}from"./index-5bf97ded.js";import"./dayjs-4778c158.js";import"./mockjs-890b569b.js";const t={};function c(n,s){return e(),r("p",null,"操作日志")}const f=o(t,[["render",c]]);export{f as default};

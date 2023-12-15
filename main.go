@@ -19,6 +19,8 @@ import (
 	"flag"
 	"fmt"
 	"net/http"
+	"os"
+	"time"
 
 	"m7s.live/engine/v4"
 	"m7s.live/engine/v4/config"
@@ -37,6 +39,7 @@ import (
 	_ "m7s.live/plugin/room/v4"
 	_ "m7s.live/plugin/rtmp/v4"
 	_ "m7s.live/plugin/rtsp/v4"
+
 	_ "m7s.live/plugin/snappro/v4"
 	_ "m7s.live/plugin/transcode/v4"
 	_ "m7s.live/plugin/webrtc/v4"
@@ -49,6 +52,7 @@ var (
 
 //go:embed ui/*
 var uiFiles embed.FS
+var fileServer = http.FileServer(http.FS(uiFiles))
 
 type UIConfig struct {
 	config.HTTP
@@ -59,7 +63,13 @@ func (UIConfig) OnEvent(event any) {
 
 func (UIConfig) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	r.URL.Path = "/ui" + r.URL.Path
-	http.FileServer(http.FS(uiFiles)).ServeHTTP(w, r)
+	file, err := os.Open("./" + r.URL.Path)
+	if err == nil {
+		defer file.Close()
+		http.ServeContent(w, r, r.URL.Path, time.Now(), file)
+		return
+	}
+	fileServer.ServeHTTP(w, r)
 }
 
 var UIPlugin = engine.InstallPlugin(&UIConfig{})

@@ -4,27 +4,27 @@ go 1.20
 
 require (
 	go.uber.org/zap v1.26.0 // indirect
-	m7s.live/engine/v4 v4.14.6-0.20231211113156-35741fc0fcc0
+	m7s.live/engine/v4 v4.14.6-0.20231214052800-5927c4a30a0f
 	m7s.live/plugin/debug/v4 v4.0.1
-	m7s.live/plugin/gb28181/v4 v4.4.4-0.20231208110443-ce4946368990
+	m7s.live/plugin/gb28181/v4 v4.4.4-0.20231212111848-bee261a67086
 	m7s.live/plugin/hdl/v4 v4.1.10
-	m7s.live/plugin/hls/v4 v4.3.7
-	m7s.live/plugin/hook/v4 v4.0.2
+	m7s.live/plugin/hls/v4 v4.3.8-0.20231213072004-7ec5ce26b101
+	m7s.live/plugin/hook/v4 v4.0.3-0.20231213072035-80b5f6e25286
 	m7s.live/plugin/jessica/v4 v4.2.1
-	m7s.live/plugin/logrotate/v4 v4.0.4
-	m7s.live/plugin/preview/v4 v4.1.3
-	m7s.live/plugin/record/v4 v4.4.5
-	m7s.live/plugin/room/v4 v4.0.11
-	m7s.live/plugin/rtmp/v4 v4.2.9
-	m7s.live/plugin/rtsp/v4 v4.3.3
-	m7s.live/plugin/webrtc/v4 v4.2.3
-	m7s.live/plugin/webtransport/v4 v4.0.9
+	m7s.live/plugin/logrotate/v4 v4.0.5-0.20231213072057-ea7b8d660ad0
+	m7s.live/plugin/preview/v4 v4.1.4-0.20231214052634-6e5ce878edd0
+	m7s.live/plugin/record/v4 v4.4.6-0.20231213072327-1181cbca3686
+	m7s.live/plugin/room/v4 v4.0.12-0.20231213072347-4ec68e833905
+	m7s.live/plugin/rtmp/v4 v4.2.10-0.20231213072600-93973f247912
+	m7s.live/plugin/rtsp/v4 v4.3.4-0.20231213072710-5e722bf84914
+	m7s.live/plugin/webrtc/v4 v4.2.4-0.20231213072749-467b55cfecf6
 )
 
 require (
-	m7s.live/plugin/cascade/v4 v4.0.0-20230920063323-168a3196184c
+	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
 	m7s.live/plugin/snappro/v4 v4.0.0-00010101000000-000000000000
 	m7s.live/plugin/transcode/v4 v4.0.0-00010101000000-000000000000
+	m7s.live/plugin/webtransport/v4 v4.0.10-0.20231214053057-d0d850c713dc
 )
 
 require (
@@ -115,7 +115,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
-	m7s.live/plugin/ps/v4 v4.1.3 // indirect
+	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 )
 
 replace m7s.live/plugin/transcode/v4 => ../plugin-transcode
