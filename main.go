@@ -62,7 +62,11 @@ func (UIConfig) OnEvent(event any) {
 }
 
 func (UIConfig) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	r.URL.Path = "/ui" + r.URL.Path
+	if r.URL.Path == "/" {
+		r.URL.Path = "/ui/index.html"
+	} else {
+		r.URL.Path = "/ui" + r.URL.Path
+	}
 	file, err := os.Open("./" + r.URL.Path)
 	if err == nil {
 		defer file.Close()
