@@ -19,3 +19,4 @@ fatal
 shutdown.sh
 dump
 *.db
+.devcontainer

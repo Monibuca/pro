@@ -5,7 +5,9 @@ archives:
       - conf/*
 builds:
   - id: "with-debug"
-    env: [CGO_ENABLED=1,GOPRIVATE="m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade"]
+    env: 
+      - CGO_ENABLED=1
+      - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
     ldflags:
       - -s -w -X main.version={{.Tag}}
     ignore:
@@ -26,7 +28,9 @@ builds:
         - go mod tidy
 
   - id: "without-debug"
-    env: [CGO_ENABLED=1,GOPRIVATE="m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade"]
+    env: 
+      - CGO_ENABLED=1
+      - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
     ldflags:
       - -s -w -X main.version={{.Tag}}    
     goos:
