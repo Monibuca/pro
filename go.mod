@@ -18,13 +18,13 @@ require (
 	m7s.live/plugin/rtmp/v4 v4.2.10-0.20231213072600-93973f247912
 	m7s.live/plugin/rtsp/v4 v4.3.4-0.20231213072710-5e722bf84914
 	m7s.live/plugin/webrtc/v4 v4.2.4-0.20231213072749-467b55cfecf6
+	m7s.live/plugin/webtransport/v4 v4.0.10-0.20231214053057-d0d850c713dc
 )
 
 require (
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
-	m7s.live/plugin/snappro/v4 v4.0.0-00010101000000-000000000000
-	m7s.live/plugin/transcode/v4 v4.0.0-00010101000000-000000000000
-	m7s.live/plugin/webtransport/v4 v4.0.10-0.20231214053057-d0d850c713dc
+	m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b
+	m7s.live/plugin/transcode/v4 v4.0.0-20231018041942-358fb2ac30a2
 )
 
 require (
@@ -117,9 +117,3 @@ require (
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 )
-
-replace m7s.live/plugin/transcode/v4 => ../plugin-transcode
-
-replace m7s.live/plugin/snappro/v4 => ../plugin-snappro
-
-replace m7s.live/plugin/cascade/v4 => ../plugin-cascade

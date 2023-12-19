@@ -2,12 +2,10 @@ project_name: m7s
 archives:
   -
     files:
-      - config.yaml
-      - monibuca.com.key
-      - monibuca.com.pem
+      - conf/*
 builds:
   - id: "with-debug"
-    env: [CGO_ENABLED=0]
+    env: [CGO_ENABLED=1,GOPRIVATE="m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade"]
     ldflags:
       - -s -w -X main.version={{.Tag}}
     ignore:
@@ -28,7 +26,7 @@ builds:
         - go mod tidy
 
   - id: "without-debug"
-    env: [CGO_ENABLED=0]
+    env: [CGO_ENABLED=1,GOPRIVATE="m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade"]
     ldflags:
       - -s -w -X main.version={{.Tag}}    
     goos:

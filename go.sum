@@ -452,6 +452,8 @@ gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 h1:sC1Xj4TYrLqg1n3AN10w871An7
 gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55/go.mod h1:L4uxeKpfBml98NYqVqwAdmV1a2nBtAec/cf3fpucW/k=
 m7s.live/engine/v4 v4.14.6-0.20231214052800-5927c4a30a0f h1:ecSK7dHlmK58R1L0ceX2cNgoNtOxmY4QCskK407HG6E=
 m7s.live/engine/v4 v4.14.6-0.20231214052800-5927c4a30a0f/go.mod h1:FRtMPBGzNE6kCLgY0wuS3H7d1btKocRiVe9fAkDtP1g=
+m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6 h1:65DfJnp9r3ply9yN2ToM/5EaKvgeu08atLaDSye95ns=
+m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6/go.mod h1:/O9oNK/f+Ku1h4TzhYOjnWiXmzTvzRSZyuE3jRB/GIU=
 m7s.live/plugin/debug/v4 v4.0.1 h1:sX0UADsiikwSol8qx+8aQzGeaFa8yJFa/cUKpBs5Lzw=
 m7s.live/plugin/debug/v4 v4.0.1/go.mod h1:A/C1ViacCOK7EPeeCfiwlUrC2TUtRdEqzrR0Yd9b1KQ=
 m7s.live/plugin/gb28181/v4 v4.4.4-0.20231212111848-bee261a67086 h1:0GDyECZQLVbnNATSKJmNxd951d2NnFsxXZK8Ecl089k=
@@ -478,6 +480,10 @@ m7s.live/plugin/rtmp/v4 v4.2.10-0.20231213072600-93973f247912 h1:aM+sdeVQHghyQ2m
 m7s.live/plugin/rtmp/v4 v4.2.10-0.20231213072600-93973f247912/go.mod h1:UqI1l1+3Y2zg2oOUkfVJ719hcv10bMYVAlg5e+gqy2E=
 m7s.live/plugin/rtsp/v4 v4.3.4-0.20231213072710-5e722bf84914 h1:NVmpte5refCcJhFM0zwVMxCl2mFByBCiRJwrKp7D9FE=
 m7s.live/plugin/rtsp/v4 v4.3.4-0.20231213072710-5e722bf84914/go.mod h1:s6tETQjq/peipACzpkPjXsZfHw+Vq7D1lyHnqSl8DRs=
+m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b h1:uzlLcG6jzzg7p2P6V/ELRb8+uVohGCGH5SOMBu3fCf4=
+m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b/go.mod h1:DLi8nwlhDPWrEm8vuFz685kF+x2UjQC7gIJbr3BMlRA=
+m7s.live/plugin/transcode/v4 v4.0.0-20231018041942-358fb2ac30a2 h1:w2sEH1ruphES6ZCafaNcseFZlF4pArafIgDcNXzc2Io=
+m7s.live/plugin/transcode/v4 v4.0.0-20231018041942-358fb2ac30a2/go.mod h1:cT9BU9SNKwqQ3UToNjtJl11Vv2Y/01B63DLYzjR7mpY=
 m7s.live/plugin/webrtc/v4 v4.2.4-0.20231213072749-467b55cfecf6 h1:2fpocvEtB2A8uW/hbGNXr34xhs5B/xbKqLQMWyVi1rQ=
 m7s.live/plugin/webrtc/v4 v4.2.4-0.20231213072749-467b55cfecf6/go.mod h1:GHnmheJotswzQAPzMrQ7mjImzTECLCSFfWWgavwbkng=
 m7s.live/plugin/webtransport/v4 v4.0.10-0.20231214053057-d0d850c713dc h1:lffChG8vjWCYcqNNtyy88AtgOCn8aLWn0fJF3P0gXuA=

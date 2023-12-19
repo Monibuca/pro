@@ -1,0 +1,60 @@
+name: Go
+
+on:
+  create:
+    tags:
+      - v*
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - uses: actions/checkout@v2
+      with:
+          fetch-depth: 1
+
+    - name: Set up Env
+      run: echo "version=${GITHUB_REF:11}" >> $GITHUB_ENV
+
+    - name: Set up Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: 1.20.7
+
+    - name: Cache Go modules
+      uses: actions/cache@v1
+      with:
+        path: ~/go/pkg/mod
+        key: runner.os−go−{ { hashFiles('**/go.sum') } }
+        restore-keys: ${{ runner.os }}-go-        
+
+    - name: Run GoReleaser
+      uses: goreleaser/goreleaser-action@v2
+      if: success() && startsWith(github.ref, 'refs/tags/')
+      with:
+        version: v1.8.3
+        args: release --rm-dist
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: copy
+      if: success() && startsWith(github.ref, 'refs/tags/')
+      run:  |
+        mkdir -p bin
+        cp dist/m7s_${{ env.version }}_windows_amd64.tar.gz bin/m7s_windows_amd64.tar.gz
+        cp dist/m7s_${{ env.version }}_darwin_amd64.tar.gz  bin/m7s_darwin_amd64.tar.gz 
+        cp dist/m7s_${{ env.version }}_darwin_arm64.tar.gz  bin/m7s_darwin_arm64.tar.gz 
+        cp dist/m7s_${{ env.version }}_linux_amd64.tar.gz   bin/m7s_linux_amd64.tar.gz 
+        cp dist/m7s_${{ env.version }}_linux_arm64.tar.gz   bin/m7s_linux_arm64.tar.gz 
+        ls bin
+    - uses: jakejarvis/s3-sync-action@master
+        # with:
+        #   args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_ENDPOINT: https://${{ secrets.R2_DOMAIN }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.R2_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET }}
+        AWS_S3_BUCKET: monibuca
+        SOURCE_DIR: 'bin'
+        DEST_DIR: 'pro'
