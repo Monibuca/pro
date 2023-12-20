@@ -4,17 +4,12 @@ archives:
     files:
       - conf/*
 builds:
-  - id: "with-debug"
+  - id: "all"
     env: 
       - CGO_ENABLED=1
       - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
     ldflags:
       - -s -w -X main.version={{.Tag}}
-    ignore:
-      - goos: darwin
-        goarch: arm64
-      - goos: windows
-        goarch: arm64        
     goos:
       - linux
       - windows
@@ -24,21 +19,4 @@ builds:
       - arm64
     hooks:
       pre:
-        - bash -c "debug=1 go generate ./..."
-        - go mod tidy
-
-  - id: "without-debug"
-    env: 
-      - CGO_ENABLED=1
-      - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
-    ldflags:
-      - -s -w -X main.version={{.Tag}}    
-    goos:
-      - windows
-      - darwin
-    goarch:
-      - arm64
-    hooks:
-      pre:
-        - bash -c "debug=0 go generate ./..."
         - go mod tidy

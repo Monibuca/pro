@@ -4,8 +4,8 @@ go 1.20
 
 require (
 	go.uber.org/zap v1.26.0 // indirect
-	m7s.live/engine/v4 v4.14.6-0.20231214052800-5927c4a30a0f
-	m7s.live/plugin/debug/v4 v4.0.1
+	m7s.live/engine/v4 v4.14.6-0.20231220021402-453ea6a6f244
+	m7s.live/plugin/debug/v4 v4.0.2-0.20231220021419-8560e3adc2d2
 	m7s.live/plugin/gb28181/v4 v4.4.4-0.20231212111848-bee261a67086
 	m7s.live/plugin/hdl/v4 v4.1.10
 	m7s.live/plugin/hls/v4 v4.3.8-0.20231213072004-7ec5ce26b101
@@ -13,7 +13,7 @@ require (
 	m7s.live/plugin/jessica/v4 v4.2.1
 	m7s.live/plugin/logrotate/v4 v4.0.5-0.20231213072057-ea7b8d660ad0
 	m7s.live/plugin/preview/v4 v4.1.4-0.20231214052634-6e5ce878edd0
-	m7s.live/plugin/record/v4 v4.4.6-0.20231213072327-1181cbca3686
+	m7s.live/plugin/record/v4 v4.4.6-0.20231215101053-3733b9f4e61f
 	m7s.live/plugin/room/v4 v4.0.12-0.20231213072347-4ec68e833905
 	m7s.live/plugin/rtmp/v4 v4.2.10-0.20231213072600-93973f247912
 	m7s.live/plugin/rtsp/v4 v4.3.4-0.20231213072710-5e722bf84914
@@ -52,6 +52,7 @@ require (
 	github.com/golang/mock v1.6.0 // indirect
 	github.com/google/pprof v0.0.0-20230912144702-c363fe2c2ed8 // indirect
 	github.com/google/uuid v1.4.0 // indirect
+	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/husanpao/ip v0.0.0-20220711082147-73160bb611a8 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
@@ -91,7 +92,7 @@ require (
 	github.com/quic-go/qtls-go1-20 v0.3.4 // indirect
 	github.com/quic-go/quic-go v0.38.1 // indirect
 	github.com/satori/go.uuid v1.2.1-0.20181028125025-b2ce2384e17b // indirect
-	github.com/shirou/gopsutil/v3 v3.23.8 // indirect
+	github.com/shirou/gopsutil/v3 v3.23.11 // indirect
 	github.com/shoenig/go-m1cpu v0.1.6 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
