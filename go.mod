@@ -23,8 +23,9 @@ require (
 
 require (
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
+	m7s.live/plugin/snap/v4 v4.0.7
 	m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b
-	m7s.live/plugin/transcode/v4 v4.0.0-20231018041942-358fb2ac30a2
+	m7s.live/plugin/transcode/v4 v4.0.0-20231225131214-549d6e2d1ddd
 )
 
 require (
@@ -40,7 +41,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/denisbrodbeck/machineid v1.0.1 // indirect
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca // indirect
-	github.com/dwdcth/ffmpeg-go v0.0.0-20230917090001-a861b8248312 // indirect
+	github.com/dwdcth/ffmpeg-go v0.0.0-20231225130714-d01a48cf003f // indirect
 	github.com/dwdcth/gomem v0.0.0-20230306045148-938b63115125 // indirect
 	github.com/ghettovoice/gosip v0.0.0-20230903092020-b059959586db // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
@@ -118,3 +119,5 @@ require (
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 )
+
+replace github.com/ying32/dylib v0.0.0-20220227124818-fdf9ea9fbc96 => github.com/dwdcth/dylib v0.1.1

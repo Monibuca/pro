@@ -39,7 +39,7 @@ import (
 	_ "m7s.live/plugin/room/v4"
 	_ "m7s.live/plugin/rtmp/v4"
 	_ "m7s.live/plugin/rtsp/v4"
-	_ "m7s.live/plugin/snappro/v4"
+
 	_ "m7s.live/plugin/transcode/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
