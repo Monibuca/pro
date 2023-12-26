@@ -4,9 +4,22 @@ archives:
     files:
       - conf/*
 builds:
-  - id: "all"
+  - id: "use cgo"
     env: 
       - CGO_ENABLED=1
+      - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
+    ldflags:
+      - -s -w -X main.version={{.Tag}}
+    goos:
+      - linux
+    goarch:
+      - amd64
+    hooks:
+      pre:
+        - go mod tidy
+  - id: "no cgo arm"
+    env: 
+      - CGO_ENABLED=0
       - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
     ldflags:
       - -s -w -X main.version={{.Tag}}
@@ -15,8 +28,21 @@ builds:
       - windows
       - darwin
     goarch:
-      - amd64
       - arm64
     hooks:
       pre:
-        - go mod tidy
+        - go mod tidy      
+  - id: "no cgo amd64"
+    env: 
+      - CGO_ENABLED=0
+      - GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
+    ldflags:
+      - -s -w -X main.version={{.Tag}}
+    goos:
+      - darwin
+      - windows
+    goarch:
+      - amd64
+    hooks:
+      pre:
+        - go mod tidy        
