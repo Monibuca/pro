@@ -16,3 +16,7 @@ cascadeclient:
 #   enable: true
 # preview:
 #   enable: true
+cdn:
+  target:
+    -
+      host: push.wuqianyi.vip

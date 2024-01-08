@@ -38,7 +38,7 @@ jobs:
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
           ssh-add - <<< "${{ secrets.GO_MODULE_PRIVATE_KEY }}"
           echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> $GITHUB_ENV
-          export GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade
+          export GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
           git config --global url.ssh://git@github.com/.insteadOf https://github.com/
           go mod download
     - name: Run GoReleaser
@@ -49,6 +49,7 @@ jobs:
         args: release --rm-dist
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GOPRIVATE: m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
     - name: copy
       if: success() && startsWith(github.ref, 'refs/tags/')
       run:  |
