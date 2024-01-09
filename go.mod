@@ -23,7 +23,7 @@ require (
 )
 
 require (
-	m7s.live/plugin/admin/v4 v4.0.0-20240108055453-1301d85c4655
+	m7s.live/plugin/admin/v4 v4.0.0-20240110073334-912cd1119d1b
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
 	m7s.live/plugin/cdn/v4 v4.0.0-20240105063308-24c28fca43cd
 	m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b

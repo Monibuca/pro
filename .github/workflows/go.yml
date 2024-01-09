@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
       with:
           fetch-depth: 1
 
@@ -43,7 +43,7 @@ jobs:
           go mod download
     - name: Run GoReleaser
       uses: goreleaser/goreleaser-action@v5
-      if: success() && startsWith(github.ref, 'refs/tags/')
+      if: success()
       with:
         version: latest
         args: release --rm-dist
@@ -51,22 +51,104 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GOPRIVATE: m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
     - name: copy
-      if: success() && startsWith(github.ref, 'refs/tags/')
+      if: success()
       run:  |
         mkdir -p bin
+        cp dist/m7s_${{ env.version }}_darwin_all.tar.gz  bin/m7s_darwin_all.tar.gz 
         cp dist/m7s_${{ env.version }}_windows_amd64.tar.gz bin/m7s_windows_amd64.tar.gz
         cp dist/m7s_${{ env.version }}_darwin_amd64.tar.gz  bin/m7s_darwin_amd64.tar.gz 
         cp dist/m7s_${{ env.version }}_darwin_arm64.tar.gz  bin/m7s_darwin_arm64.tar.gz 
         cp dist/m7s_${{ env.version }}_linux_amd64.tar.gz   bin/m7s_linux_amd64.tar.gz 
         cp dist/m7s_${{ env.version }}_linux_arm64.tar.gz   bin/m7s_linux_arm64.tar.gz 
         ls bin
-    - uses: jakejarvis/s3-sync-action@master
-        # with:
-        #   args: --acl public-read --follow-symlinks --delete
-      env:
-        AWS_S3_ENDPOINT: https://${{ secrets.R2_DOMAIN }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.R2_KEY }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET }}
-        AWS_S3_BUCKET: monibuca
-        SOURCE_DIR: 'bin'
-        DEST_DIR: 'pro'
+    - name: R2 Release
+      uses: shallwefootball/upload-s3-action@v1.3.3
+      with:
+        aws_key_id:  ${{ secrets.R2_KEY }}
+        aws_secret_access_key:  ${{ secrets.R2_SECRET }}
+        aws_bucket: monibuca
+        source_dir: bin
+        destination_dir: pro
+        endpoint: https://${{ secrets.R2_DOMAIN }}
+ 
+    - name: clone admin
+      if: success()
+      run:  |
+        git clone --depth 1 git@github.com:Monibuca/plugin-admin
+        cd bin
+        tar -zxvf m7s_windows_amd64.tar.gz
+        mv m7s.exe ../plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-pc-windows-msvc.exe
+        tar -zxvf m7s_darwin_amd64.tar.gz
+        mv m7s ../plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-apple-darwin
+        tar -zxvf m7s_darwin_arm64.tar.gz
+        mv m7s ../plugin-admin/apps/gb28181/src-tauri/m7s-aarch64-apple-darwin
+        ls
+        cd ..
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: binaries
+        path: plugin-admin
+
+
+
+  build-tauri:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        platform:
+          - os: macos-latest
+            rust_target: x86_64-apple-darwin
+          - os: macos-latest
+            rust_target: aarch64-apple-darwin
+          - os: windows-latest
+            rust_target: x86_64-pc-windows-msvc
+
+    runs-on: ${{ matrix.platform.os }}
+    steps:
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: install Rust stable
+      uses: actions-rs/toolchain@v1
+      with:
+        default: true
+        override: true
+        profile: minimal
+        toolchain: stable
+        target: ${{ matrix.platform.rust_target }}
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: binaries
+    - uses: JonasKruckenberg/tauri-build@v1
+      id: tauri_build
+      with:
+        target: ${{ matrix.platform.rust_target }}
+        projectPath: apps/gb28181/src-tauri
+        debug: true
+    - name: copy ouputs
+      run: |
+        mkdir -p dist
+        cp ${{ join(fromJSON(steps.tauri_build.outputs.artifacts),' ') }} dist/
+    - name: R2 Release
+      uses: shallwefootball/upload-s3-action@v1.3.3
+      with:
+        aws_key_id:  ${{ secrets.R2_KEY }}
+        aws_secret_access_key:  ${{ secrets.R2_SECRET }}
+        aws_bucket: monibuca
+        source_dir: dist
+        destination_dir: pro
+        endpoint: https://${{ secrets.R2_DOMAIN }}
+    # - name: R2 Release
+    #   uses: randomairborne/r2-release@v1.0.2
+    #   with:
+    #     endpoint: https://${{ secrets.R2_DOMAIN }}
+    #     accesskeyid: ${{ secrets.R2_KEY }}
+    #     secretaccesskey: ${{ secrets.R2_SECRET }}
+    #     bucket: monibuca
+    #     file: "${{ fromJSON(steps.tauri_build.outputs.artifacts)[0] }}"
+    #     destination: pro/m7s-${{ matrix.platform.rust_target }}.${{ fromJSON(steps.tauri_build.outputs.artifacts)[0]##*.}}

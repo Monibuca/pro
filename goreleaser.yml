@@ -42,4 +42,10 @@ builds:
       - amd64
     hooks:
       pre:
-        - go mod tidy        
+        - go mod tidy
+universal_binaries:
+  -
+    ids:
+      - "no cgo arm"
+      - "no cgo amd64"
+    replace: false
