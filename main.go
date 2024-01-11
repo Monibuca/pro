@@ -23,6 +23,7 @@ import (
 	_ "m7s.live/plugin/admin/v4"
 	_ "m7s.live/plugin/cascade/v4"
 	_ "m7s.live/plugin/cdn/v4"
+	_ "m7s.live/plugin/crypto/v4"
 	_ "m7s.live/plugin/debug/v4"
 	_ "m7s.live/plugin/gb28181/v4"
 	_ "m7s.live/plugin/hdl/v4"

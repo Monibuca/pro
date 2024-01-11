@@ -23,7 +23,7 @@ require (
 )
 
 require (
-	m7s.live/plugin/admin/v4 v4.0.0-20240110073334-912cd1119d1b
+	m7s.live/plugin/admin/v4 v4.0.0-20240111081015-fa2754bfac98
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
 	m7s.live/plugin/cdn/v4 v4.0.0-20240105063308-24c28fca43cd
 	m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b
@@ -119,6 +119,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
+	m7s.live/plugin/crypto/v4 v4.0.0-20240108084727-bbc0aaa47db6 // indirect
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 )
 
