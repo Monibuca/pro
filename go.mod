@@ -17,17 +17,16 @@ require (
 	m7s.live/plugin/room/v4 v4.0.12
 	m7s.live/plugin/rtmp/v4 v4.2.10
 	m7s.live/plugin/rtsp/v4 v4.3.4
-	m7s.live/plugin/snap/v4 v4.0.8
 	m7s.live/plugin/webrtc/v4 v4.2.4
 	m7s.live/plugin/webtransport/v4 v4.0.10
 )
 
 require (
-	m7s.live/plugin/admin/v4 v4.0.0-20240111081015-fa2754bfac98
+	m7s.live/plugin/admin/v4 v4.0.0-20240112011004-7d79efaf4b82
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
 	m7s.live/plugin/cdn/v4 v4.0.0-20240105063308-24c28fca43cd
-	m7s.live/plugin/snappro/v4 v4.0.0-20231013095636-dd1dabf3778b
-	m7s.live/plugin/transcode/v4 v4.0.0-20231018041942-358fb2ac30a2
+	m7s.live/plugin/snappro/v4 v4.0.0-20240112072729-93b1c2828fa9
+	m7s.live/plugin/transcode/v4 v4.0.0-20240112072756-3a1fe8fd79e6
 )
 
 require (
@@ -43,8 +42,9 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/denisbrodbeck/machineid v1.0.1 // indirect
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca // indirect
-	github.com/dwdcth/ffmpeg-go v0.0.0-20231225135548-2f7bd93d0c5a // indirect
+	github.com/dwdcth/ffmpeg-go v0.0.0-20231229095736-a1f342323e59 // indirect
 	github.com/dwdcth/gomem v0.0.0-20230306045148-938b63115125 // indirect
+	github.com/ebitengine/purego v0.6.0-alpha.2.0.20231129131118-33b97fd6a58b // indirect
 	github.com/ghettovoice/gosip v0.0.0-20230903092020-b059959586db // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
@@ -109,18 +109,19 @@ require (
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.16.0 // indirect
 	golang.org/x/exp v0.0.0-20230905200255-921286631fa9 // indirect
-	golang.org/x/mod v0.12.0 // indirect
+	golang.org/x/mod v0.14.0 // indirect
 	golang.org/x/net v0.19.0 // indirect
-	golang.org/x/sync v0.3.0 // indirect
+	golang.org/x/sync v0.5.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
-	golang.org/x/tools v0.13.0 // indirect
+	golang.org/x/tools v0.16.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
 	m7s.live/plugin/crypto/v4 v4.0.0-20240108084727-bbc0aaa47db6 // indirect
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
+	m7s.live/plugin/snap/v4 v4.0.8
 )
 
 replace github.com/ying32/dylib v0.0.0-20220227124818-fdf9ea9fbc96 => github.com/dwdcth/dylib v0.1.2

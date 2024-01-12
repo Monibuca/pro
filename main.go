@@ -19,7 +19,6 @@ import (
 
 	"m7s.live/engine/v4"
 	"m7s.live/engine/v4/util"
-
 	_ "m7s.live/plugin/admin/v4"
 	_ "m7s.live/plugin/cascade/v4"
 	_ "m7s.live/plugin/cdn/v4"
@@ -36,7 +35,6 @@ import (
 	_ "m7s.live/plugin/room/v4"
 	_ "m7s.live/plugin/rtmp/v4"
 	_ "m7s.live/plugin/rtsp/v4"
-	_ "m7s.live/plugin/transcode/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
 )

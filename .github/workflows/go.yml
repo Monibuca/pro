@@ -15,52 +15,50 @@ jobs:
       with:
           fetch-depth: 1
 
-    - name: Set up Env
-      run: echo "version=${GITHUB_REF:11}" >> $GITHUB_ENV
-
     - name: Set up Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v5
       with:
+        token: ${{ secrets.GITHUB_TOKEN }}
         go-version: 1.20.7
-
-    - name: Cache Go modules
-      uses: actions/cache@v1
-      with:
-        path: ~/go/pkg/mod
-        key: runner.os−go−{ { hashFiles('**/go.sum') } }
-        restore-keys: ${{ runner.os }}-go-        
+   
     - name: Download PRIVATE dependencies
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        GOPRIVATE: m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
       run: |
-          mkdir -p ~/.ssh
+          mkdir -p ~/.ssh bin
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null	
           ssh-add - <<< "${{ secrets.GO_MODULE_PRIVATE_KEY }}"
           echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> $GITHUB_ENV
-          export GOPRIVATE=m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
           git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-          go mod download
-    - name: Run GoReleaser
-      uses: goreleaser/goreleaser-action@v5
-      if: success()
-      with:
-        version: latest
-        args: release --rm-dist
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOPRIVATE: m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
-    - name: copy
-      if: success()
-      run:  |
-        mkdir -p bin
-        cp dist/m7s_${{ env.version }}_darwin_all.tar.gz  bin/m7s_darwin_all.tar.gz 
-        cp dist/m7s_${{ env.version }}_windows_amd64.tar.gz bin/m7s_windows_amd64.tar.gz
-        cp dist/m7s_${{ env.version }}_darwin_amd64.tar.gz  bin/m7s_darwin_amd64.tar.gz 
-        cp dist/m7s_${{ env.version }}_darwin_arm64.tar.gz  bin/m7s_darwin_arm64.tar.gz 
-        cp dist/m7s_${{ env.version }}_linux_amd64.tar.gz   bin/m7s_linux_amd64.tar.gz 
-        cp dist/m7s_${{ env.version }}_linux_arm64.tar.gz   bin/m7s_linux_arm64.tar.gz 
-        ls bin
+          git clone --depth 1 git@github.com:Monibuca/plugin-admin
+          go mod tidy
+          go env
+          go env -w GOARCH=amd64
+          go build -o m7s -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
+          tar -zcvf bin/m7s_linux_amd64.tar.gz m7s conf
+          mv m7s plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-unknown-linux-gnu
+
+          go env -w GOOS=windows
+          go build -o m7s.exe -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
+          zip bin/m7s_windows_amd64.zip m7s.exe conf
+          mv m7s.exe plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-pc-windows-msvc.exe
+
+          go env -w GOOS=darwin
+          go build -o m7s -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
+          tar -zcvf bin/m7s_darwin_amd64.tar.gz m7s conf
+          mv m7s plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-apple-darwin
+
+          go env -w GOARCH=arm64
+          go build -o m7s -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
+          tar -zcvf bin/m7s_darwin_arm64.tar.gz m7s conf
+          mv m7s plugin-admin/apps/gb28181/src-tauri/m7s-aarch64-apple-darwin
+
+          go env -w GOOS=linux
+          go build -o m7s -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
+          tar -zcvf bin/m7s_linux_arm64.tar.gz m7s conf
+
     - name: R2 Release
       uses: shallwefootball/upload-s3-action@v1.3.3
       with:
@@ -71,21 +69,7 @@ jobs:
         destination_dir: pro
         endpoint: https://${{ secrets.R2_DOMAIN }}
  
-    - name: clone admin
-      if: success()
-      run:  |
-        git clone --depth 1 git@github.com:Monibuca/plugin-admin
-        cd bin
-        tar -zxvf m7s_windows_amd64.tar.gz
-        mv m7s.exe ../plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-pc-windows-msvc.exe
-        tar -zxvf m7s_darwin_amd64.tar.gz
-        mv m7s ../plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-apple-darwin
-        tar -zxvf m7s_darwin_arm64.tar.gz
-        mv m7s ../plugin-admin/apps/gb28181/src-tauri/m7s-aarch64-apple-darwin
-        tar -zxvf m7s_darwin_all.tar.gz
-        mv m7s ../plugin-admin/apps/gb28181/src-tauri/m7s-universal-apple-darwin
-        ls
-        cd ..
+
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
@@ -138,30 +122,27 @@ jobs:
 
   build-tauri-mac:
     needs: build
-    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        rust_target:
+          - x86_64-apple-darwin
+          - aarch64-apple-darwin
+    runs-on:  macos-latest
     steps:
     - name: setup node
       uses: actions/setup-node@v3
       with:
         node-version: 18
 
-    - name: install Rust stable x86
+    - name: install Rust stable
       uses: actions-rs/toolchain@v1
       with:
         default: true
         override: true
         profile: minimal
         toolchain: stable
-        target: x86_64-apple-darwin
-
-    - name: install Rust stable aarch64
-      uses: actions-rs/toolchain@v1
-      with:
-        default: true
-        override: true
-        profile: minimal
-        toolchain: stable
-        target: aarch64-apple-darwin
+        target: ${{ matrix.rust_target }}
 
     - name: Download Artifact
       uses: actions/download-artifact@v4
@@ -169,13 +150,13 @@ jobs:
         name: binaries
     - name: chmod
       run: |
-        chmod 777 apps/gb28181/src-tauri/m7s-universal-apple-darwin
+        chmod 777 apps/gb28181/src-tauri/m7s-${{ matrix.rust_target }}
     - uses: JonasKruckenberg/tauri-build@v1
       id: tauri_build
       env:
         TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
       with:
-        target: universal-apple-darwin
+        target: ${{ matrix.rust_target }}
         projectPath: apps/gb28181/src-tauri
         debug: true
     - name: copy ouputs
