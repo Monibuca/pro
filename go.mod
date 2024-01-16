@@ -22,12 +22,14 @@ require (
 )
 
 require (
-	m7s.live/plugin/admin/v4 v4.0.0-20240112011004-7d79efaf4b82
+	m7s.live/plugin/admin/v4 v4.0.0-20240116022609-b10eb91a1035
 	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
-	m7s.live/plugin/cdn/v4 v4.0.0-20240105063308-24c28fca43cd
-	m7s.live/plugin/snappro/v4 v4.0.0-20240112072729-93b1c2828fa9
-	m7s.live/plugin/transcode/v4 v4.0.0-20240112072756-3a1fe8fd79e6
+	m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d
+	m7s.live/plugin/snappro/v4 v4.0.0-20240116022106-3396c29ec58f
+	m7s.live/plugin/transcode/v4 v4.0.0-20240116022113-290bd43aa5f7
 )
+
+require m7s.live/plugin/ffmpeg/v4 v4.0.0-20240116021853-16356e0d8ece
 
 require (
 	github.com/Eyevinn/mp4ff v0.40.1 // indirect
@@ -42,7 +44,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/denisbrodbeck/machineid v1.0.1 // indirect
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca // indirect
-	github.com/dwdcth/ffmpeg-go v0.0.0-20231229095736-a1f342323e59 // indirect
+	github.com/dwdcth/ffmpeg-go v0.0.0-20240112132107-6c9a48149827 // indirect
 	github.com/dwdcth/gomem v0.0.0-20230306045148-938b63115125 // indirect
 	github.com/ebitengine/purego v0.6.0-alpha.2.0.20231129131118-33b97fd6a58b // indirect
 	github.com/ghettovoice/gosip v0.0.0-20230903092020-b059959586db // indirect
@@ -119,7 +121,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
-	m7s.live/plugin/crypto/v4 v4.0.0-20240108084727-bbc0aaa47db6 // indirect
+	m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410 // indirect
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 	m7s.live/plugin/snap/v4 v4.0.8
 )

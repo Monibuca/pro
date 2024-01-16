@@ -24,6 +24,7 @@ import (
 	_ "m7s.live/plugin/cdn/v4"
 	_ "m7s.live/plugin/crypto/v4"
 	_ "m7s.live/plugin/debug/v4"
+	_ "m7s.live/plugin/ffmpeg/v4"
 	_ "m7s.live/plugin/gb28181/v4"
 	_ "m7s.live/plugin/hdl/v4"
 	_ "m7s.live/plugin/hls/v4"

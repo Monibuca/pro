@@ -25,6 +25,7 @@ jobs:
       env:
         SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         GOPRIVATE: m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
+        CGO_ENABLED: 0
       run: |
           mkdir -p ~/.ssh bin
           ssh-keyscan github.com >> ~/.ssh/known_hosts
@@ -35,7 +36,6 @@ jobs:
           git clone --depth 1 git@github.com:Monibuca/plugin-admin
           go mod tidy
           go env
-          go env -w GOARCH=amd64
           go build -o m7s -ldflags="-s -w -X main.version=${GITHUB_REF:11}" main.go
           tar -zcvf bin/m7s_linux_amd64.tar.gz m7s conf
           mv m7s plugin-admin/apps/gb28181/src-tauri/m7s-x86_64-unknown-linux-gnu
