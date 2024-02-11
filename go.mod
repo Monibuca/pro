@@ -23,13 +23,28 @@ require (
 
 require (
 	m7s.live/plugin/admin/v4 v4.0.0-20240116022609-b10eb91a1035
-	m7s.live/plugin/cascade/v4 v4.0.0-20231214061644-15d42e824ff6
+	m7s.live/plugin/cascade/v4 v4.0.0-20240117013320-172ab6a69118
 	m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d
 	m7s.live/plugin/snappro/v4 v4.0.0-20240116022106-3396c29ec58f
 	m7s.live/plugin/transcode/v4 v4.0.0-20240116022113-290bd43aa5f7
 )
 
-require m7s.live/plugin/ffmpeg/v4 v4.0.0-20240116021853-16356e0d8ece
+require (
+	m7s.live/plugin/ffmpeg/v4 v4.0.0-20240116021853-16356e0d8ece
+	m7s.live/plugin/voice/v4 v4.0.0-20240207081216-f35fd43bba64
+)
+
+require (
+	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/glebarez/go-sqlite v1.21.2 // indirect
+	github.com/glebarez/sqlite v1.10.0 // indirect
+	github.com/gorilla/mux v1.8.1 // indirect
+	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	modernc.org/libc v1.22.5 // indirect
+	modernc.org/mathutil v1.6.0 // indirect
+	modernc.org/memory v1.5.0 // indirect
+	modernc.org/sqlite v1.23.1 // indirect
+)
 
 require (
 	github.com/Eyevinn/mp4ff v0.40.1 // indirect
@@ -66,7 +81,6 @@ require (
 	github.com/marten-seemann/qpack v0.3.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
-	github.com/mattn/go-sqlite3 v1.14.17 // indirect
 	github.com/mcuadros/go-defaults v1.2.0 // indirect
 	github.com/mgutz/ansi v0.0.0-20200706080929-d51e80ef957d // indirect
 	github.com/onsi/ginkgo/v2 v2.12.1 // indirect
@@ -106,7 +120,6 @@ require (
 	github.com/tklauser/numcpus v0.6.1 // indirect
 	github.com/x-cray/logrus-prefixed-formatter v0.5.2 // indirect
 	github.com/yapingcat/gomedia v0.0.0-20230905155010-55b9713fcec1 // indirect
-	github.com/ying32/dylib v0.0.0-20220227124818-fdf9ea9fbc96 // indirect
 	github.com/yusufpapurcu/wmi v1.2.3 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.16.0 // indirect
@@ -119,9 +132,8 @@ require (
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.16.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/driver/sqlite v1.5.3 // indirect
-	gorm.io/gorm v1.25.2-0.20230530020048-26663ab9bf55 // indirect
-	m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410 // indirect
+	gorm.io/gorm v1.25.5 // indirect
+	m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 	m7s.live/plugin/snap/v4 v4.0.8
 )

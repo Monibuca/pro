@@ -126,8 +126,8 @@ jobs:
       fail-fast: false
       matrix:
         rust_target:
-          - x86_64-apple-darwin
-          - aarch64-apple-darwin
+          - x86_64
+          - aarch64
     runs-on:  macos-latest
     steps:
     - name: setup node
@@ -142,7 +142,7 @@ jobs:
         override: true
         profile: minimal
         toolchain: stable
-        target: ${{ matrix.rust_target }}
+        target: ${{ matrix.rust_target }}-apple-darwin
 
     - name: Download Artifact
       uses: actions/download-artifact@v4
@@ -150,19 +150,21 @@ jobs:
         name: binaries
     - name: chmod
       run: |
-        chmod 777 apps/gb28181/src-tauri/m7s-${{ matrix.rust_target }}
+        chmod 777 apps/gb28181/src-tauri/m7s-${{ matrix.rust_target }}-apple-darwin
     - uses: JonasKruckenberg/tauri-build@v1
       id: tauri_build
       env:
         TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
       with:
-        target: ${{ matrix.rust_target }}
+        target: ${{ matrix.rust_target }}-apple-darwin
         projectPath: apps/gb28181/src-tauri
         debug: true
     - name: copy ouputs
       run: |
         mkdir -p dist
         cp ${{ join(fromJSON(steps.tauri_build.outputs.artifacts),' ') }} dist/
+        mv dist/m7s-pro.app dist/m7s-pro_${{ matrix.rust_target }}.app
+        mv dist/m7s-pro.app.tar.gz dist/m7s-pro_${{ matrix.rust_target }}.app.tar.gz
     - name: R2 Release
       uses: shallwefootball/upload-s3-action@v1.3.3
       with:

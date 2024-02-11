@@ -38,6 +38,7 @@ import (
 	_ "m7s.live/plugin/rtsp/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
+	_ "m7s.live/plugin/voice/v4"
 )
 
 var (
@@ -49,7 +50,7 @@ func main() {
 	conf := flag.String("c", "config.yaml", "config file")
 	flag.Parse()
 	_ctx := context.WithValue(context.Background(), "version", version)
-	ctx, cancel := context.WithTimeout(_ctx, 3*time.Hour)
+	ctx, cancel := context.WithTimeout(_ctx, time.Hour)
 	// ctx, cancel := context.WithCancel(_ctx)
 	go util.WaitTerm(cancel)
 	engine.Run(ctx, *conf)
