@@ -474,6 +474,8 @@ m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d h1:uchzv5qhpQhnxP+TGoe
 m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d/go.mod h1:9yrvhvrvKfKhcRNwy3uunjCCk7g4toZapVgMJa7XVyo=
 m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410 h1:EarSNIMbmRoqflLQ/YDfUihvwu2wfwx+60mb1VHvRVc=
 m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410/go.mod h1:WMdvqVNbe9EcRwYvWWYvLI6+r+6jU+g8AyLHf2Ax+Wg=
+m7s.live/plugin/crypto/v4 v4.0.0-20240226034943-b66e385c7d42 h1:sfRhoeXKjZ4fMqXM3tSybuZhaAfRFxd7gi642PCRoTM=
+m7s.live/plugin/crypto/v4 v4.0.0-20240226034943-b66e385c7d42/go.mod h1:WMdvqVNbe9EcRwYvWWYvLI6+r+6jU+g8AyLHf2Ax+Wg=
 m7s.live/plugin/debug/v4 v4.0.2 h1:JWiECbI4V7s/5RIjAJR/TscS0Wae2Lv+sg/D8HVJZpU=
 m7s.live/plugin/debug/v4 v4.0.2/go.mod h1:muzikl1KrHfbT/+2aHzKg9qDGfpArViQAtpcfFrST88=
 m7s.live/plugin/ffmpeg/v4 v4.0.0-20240116021853-16356e0d8ece h1:I9WuaIo2CWioikELSVj6H47+rXuk3DT8hHApYcnJc0w=

@@ -133,7 +133,7 @@ require (
 	golang.org/x/tools v0.16.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/gorm v1.25.5 // indirect
-	m7s.live/plugin/crypto/v4 v4.0.0-20240116022206-59815daea410
+	m7s.live/plugin/crypto/v4 v4.0.0-20240226034943-b66e385c7d42
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 	m7s.live/plugin/snap/v4 v4.0.8
 )
