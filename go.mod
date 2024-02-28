@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	go.uber.org/zap v1.26.0 // indirect
-	m7s.live/engine/v4 v4.14.6
+	m7s.live/engine/v4 v4.15.1
 	m7s.live/plugin/debug/v4 v4.0.2
 	m7s.live/plugin/gb28181/v4 v4.4.4
 	m7s.live/plugin/hdl/v4 v4.1.10
@@ -15,9 +15,9 @@ require (
 	m7s.live/plugin/preview/v4 v4.1.4
 	m7s.live/plugin/record/v4 v4.4.6
 	m7s.live/plugin/room/v4 v4.0.12
-	m7s.live/plugin/rtmp/v4 v4.2.10
-	m7s.live/plugin/rtsp/v4 v4.3.4
-	m7s.live/plugin/webrtc/v4 v4.2.4
+	m7s.live/plugin/rtmp/v4 v4.3.1-0.20240228010619-887c9bb6c3b7
+	m7s.live/plugin/rtsp/v4 v4.3.5-0.20240228010654-14ef344d0848
+	m7s.live/plugin/webrtc/v4 v4.2.6-0.20240228010952-272f6e1bc8bd
 	m7s.live/plugin/webtransport/v4 v4.0.10
 )
 
@@ -26,7 +26,7 @@ require (
 	m7s.live/plugin/cascade/v4 v4.0.0-20240117013320-172ab6a69118
 	m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d
 	m7s.live/plugin/snappro/v4 v4.0.0-20240116022106-3396c29ec58f
-	m7s.live/plugin/transcode/v4 v4.0.0-20240116022113-290bd43aa5f7
+	m7s.live/plugin/transcode/v4 v4.0.0-20240228010559-25fbda94c3ce
 )
 
 require (
@@ -40,6 +40,7 @@ require (
 	github.com/glebarez/sqlite v1.10.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
+	m7s.live/plugin/sei/v4 v4.0.0-20240228013136-5e82ceda68ec // indirect
 	modernc.org/libc v1.22.5 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
@@ -133,7 +134,7 @@ require (
 	golang.org/x/tools v0.16.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/gorm v1.25.5 // indirect
-	m7s.live/plugin/crypto/v4 v4.0.0-20240226034943-b66e385c7d42
+	m7s.live/plugin/crypto/v4 v4.0.0-20240228010543-d116a994e3b4
 	m7s.live/plugin/ps/v4 v4.1.5-0.20231213072312-25570d9571b3 // indirect
 	m7s.live/plugin/snap/v4 v4.0.8
 )

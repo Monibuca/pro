@@ -6,6 +6,18 @@
 
 专业版为付费提供，可以先下载体验版，或者在线体验，如果满意可以联系我们购买正式版。
 
+# 功能介绍
+- 转码，可将 h264 和 h265 互转，音频 aac 和 g711 互转。可以转码成多个分辨率，支持硬件加速。
+- 加密，多种加密方式，可配合 jessibuca 进行解密播放
+- CDN，转推到阿里云、腾讯云等 CDN 服务商（可以和加密组合）
+- 语音对讲，实现公网语音对讲能力（需要购买硬件）
+- 级联功能，将多个 Monibuca 服务器级联，有多种级联方式。
+- 快速截图，比普通截图快 10 倍速度。
+- 高级录制，支持定时任务等。
+- GB28181 专业版，可实现 GB 协议的级联等。
+- onvif 专业版，支持 onvif 协议的 ptz 功能。
+- Admin，精美管理界面，可管理设备，多屏、大屏显示，历史回放，拉流转推等。
+
 # 体验版
 ## 在线体验
 [在线体验](https://test.monibuca.com/ui)
@@ -18,18 +30,13 @@
 - [mac x86](https://download.m7s.live/pro/m7s_darwin_amd64.tar.gz)
 - [mac arm](https://download.m7s.live/pro/m7s_darwin_arm64.tar.gz)
 
-UI 界面访问地址：http://localhost:8080/ui
+Admin UI 界面访问地址：http://localhost:8080/ui
 
 ## Docker体验
   
 ```bash
-docker run -p 8080:8080 1935:1935 9000:9000 554:554 5060:5060 58200-59200:58200-59200/udp 44944:44944/udp monibuca/pro:latest
+docker run -p 8080:8080 8443:8443 1935:1935 9000:9000 554:554 5060:5060/udp 58200-59200:58200-59200 44944:44944/udp monibuca/pro:latest
 ```
-## 桌面体验
-- [windows](https://download.m7s.live/pro/m7s-pro_0.1.3_x64_en-US.msi)
-- [mac x86](https://download.m7s.live/pro/m7s-pro.app.tar.gz)
-- [mac arm](https://download.m7s.live/pro/m7s-pro_aarch64.app.tar.gz)
-> mac 下运行出现移入废纸篓问题：https://zhuanlan.zhihu.com/p/135948430
 
 # 编译方式
 - 在购买了私有仓库的源码后，可以通过以下方式编译专业版。
@@ -37,7 +44,7 @@ docker run -p 8080:8080 1935:1935 9000:9000 554:554 5060:5060 58200-59200:58200-
 ## 设置 GO 环境变量
 私有仓库地址必须配置到 GOPRIVATE 中
 ```bash
-GOPRIVATE=m7s.live/plugin/voice/v4,m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin
+GOPRIVATE=m7s.live/plugin/voice/v4,m7s.live/plugin/snappro/v4,m7s.live/plugin/transcode/v4,m7s.live/plugin/cascade,m7s.live/plugin/cdn,m7s.live/plugin/crypto,m7s.live/plugin/admin,m7s.live/plugin/sei
 ```
 
 ## 设置 git config
