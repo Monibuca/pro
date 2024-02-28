@@ -39,6 +39,7 @@ import (
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
 	_ "m7s.live/plugin/voice/v4"
+	_ "m7s.live/plugin/sei/v4"
 )
 
 var (

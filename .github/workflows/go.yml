@@ -70,108 +70,108 @@ jobs:
         endpoint: https://${{ secrets.R2_DOMAIN }}
  
 
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: binaries
-        path: plugin-admin
-  build-tauri-windows:
-    needs: build
-    runs-on: windows-latest
-    steps:
-    - name: setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+  #   - name: Upload Artifact
+  #     uses: actions/upload-artifact@v4
+  #     with:
+  #       name: binaries
+  #       path: plugin-admin
+  # build-tauri-windows:
+  #   needs: build
+  #   runs-on: windows-latest
+  #   steps:
+  #   - name: setup node
+  #     uses: actions/setup-node@v3
+  #     with:
+  #       node-version: 18
 
-    - name: install Rust stable windows
-      uses: actions-rs/toolchain@v1
-      with:
-        default: true
-        override: true
-        profile: minimal
-        toolchain: stable
-        target: x86_64-pc-windows-msvc
-    - name: Download Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: binaries
-    - uses: JonasKruckenberg/tauri-build@v1
-      id: tauri_build
-      env:
-        TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
-      with:
-        target: x86_64-pc-windows-msvc
-        projectPath: apps/gb28181/src-tauri
-        debug: true
-    - name: copy ouputs
-      run: |
-        mkdir -p dist
-        $files =  "${{ join(fromJSON(steps.tauri_build.outputs.artifacts),'","') }}"
-        Copy-Item -Path $files -Destination dist
-    - name: R2 Release
-      uses: shallwefootball/upload-s3-action@v1.3.3
-      with:
-        aws_key_id:  ${{ secrets.R2_KEY }}
-        aws_secret_access_key:  ${{ secrets.R2_SECRET }}
-        aws_bucket: monibuca
-        source_dir: dist
-        destination_dir: pro
-        endpoint: https://${{ secrets.R2_DOMAIN }}
+  #   - name: install Rust stable windows
+  #     uses: actions-rs/toolchain@v1
+  #     with:
+  #       default: true
+  #       override: true
+  #       profile: minimal
+  #       toolchain: stable
+  #       target: x86_64-pc-windows-msvc
+  #   - name: Download Artifact
+  #     uses: actions/download-artifact@v4
+  #     with:
+  #       name: binaries
+  #   - uses: JonasKruckenberg/tauri-build@v1
+  #     id: tauri_build
+  #     env:
+  #       TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+  #     with:
+  #       target: x86_64-pc-windows-msvc
+  #       projectPath: apps/gb28181/src-tauri
+  #       debug: true
+  #   - name: copy ouputs
+  #     run: |
+  #       mkdir -p dist
+  #       $files =  "${{ join(fromJSON(steps.tauri_build.outputs.artifacts),'","') }}"
+  #       Copy-Item -Path $files -Destination dist
+  #   - name: R2 Release
+  #     uses: shallwefootball/upload-s3-action@v1.3.3
+  #     with:
+  #       aws_key_id:  ${{ secrets.R2_KEY }}
+  #       aws_secret_access_key:  ${{ secrets.R2_SECRET }}
+  #       aws_bucket: monibuca
+  #       source_dir: dist
+  #       destination_dir: pro
+  #       endpoint: https://${{ secrets.R2_DOMAIN }}
   
 
-  build-tauri-mac:
-    needs: build
-    strategy:
-      fail-fast: false
-      matrix:
-        rust_target:
-          - x86_64
-          - aarch64
-    runs-on:  macos-latest
-    steps:
-    - name: setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+  # build-tauri-mac:
+  #   needs: build
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       rust_target:
+  #         - x86_64
+  #         - aarch64
+  #   runs-on:  macos-latest
+  #   steps:
+  #   - name: setup node
+  #     uses: actions/setup-node@v3
+  #     with:
+  #       node-version: 18
 
-    - name: install Rust stable
-      uses: actions-rs/toolchain@v1
-      with:
-        default: true
-        override: true
-        profile: minimal
-        toolchain: stable
-        target: ${{ matrix.rust_target }}-apple-darwin
+  #   - name: install Rust stable
+  #     uses: actions-rs/toolchain@v1
+  #     with:
+  #       default: true
+  #       override: true
+  #       profile: minimal
+  #       toolchain: stable
+  #       target: ${{ matrix.rust_target }}-apple-darwin
 
-    - name: Download Artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: binaries
-    - name: chmod
-      run: |
-        chmod 777 apps/gb28181/src-tauri/m7s-${{ matrix.rust_target }}-apple-darwin
-    - uses: JonasKruckenberg/tauri-build@v1
-      id: tauri_build
-      env:
-        TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
-      with:
-        target: ${{ matrix.rust_target }}-apple-darwin
-        projectPath: apps/gb28181/src-tauri
-        debug: true
-    - name: copy ouputs
-      run: |
-        mkdir -p dist
-        cp ${{ join(fromJSON(steps.tauri_build.outputs.artifacts),' ') }} dist/
-        mv dist/m7s-pro.app dist/m7s-pro_${{ matrix.rust_target }}.app
-        mv dist/m7s-pro.app.tar.gz dist/m7s-pro_${{ matrix.rust_target }}.app.tar.gz
-    - name: R2 Release
-      uses: shallwefootball/upload-s3-action@v1.3.3
-      with:
-        aws_key_id:  ${{ secrets.R2_KEY }}
-        aws_secret_access_key:  ${{ secrets.R2_SECRET }}
-        aws_bucket: monibuca
-        source_dir: dist
-        destination_dir: pro
-        endpoint: https://${{ secrets.R2_DOMAIN }}
+  #   - name: Download Artifact
+  #     uses: actions/download-artifact@v4
+  #     with:
+  #       name: binaries
+  #   - name: chmod
+  #     run: |
+  #       chmod 777 apps/gb28181/src-tauri/m7s-${{ matrix.rust_target }}-apple-darwin
+  #   - uses: JonasKruckenberg/tauri-build@v1
+  #     id: tauri_build
+  #     env:
+  #       TAURI_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
+  #     with:
+  #       target: ${{ matrix.rust_target }}-apple-darwin
+  #       projectPath: apps/gb28181/src-tauri
+  #       debug: true
+  #   - name: copy ouputs
+  #     run: |
+  #       mkdir -p dist
+  #       cp ${{ join(fromJSON(steps.tauri_build.outputs.artifacts),' ') }} dist/
+  #       mv dist/m7s-pro.app dist/m7s-pro_${{ matrix.rust_target }}.app
+  #       mv dist/m7s-pro.app.tar.gz dist/m7s-pro_${{ matrix.rust_target }}.app.tar.gz
+  #   - name: R2 Release
+  #     uses: shallwefootball/upload-s3-action@v1.3.3
+  #     with:
+  #       aws_key_id:  ${{ secrets.R2_KEY }}
+  #       aws_secret_access_key:  ${{ secrets.R2_SECRET }}
+  #       aws_bucket: monibuca
+  #       source_dir: dist
+  #       destination_dir: pro
+  #       endpoint: https://${{ secrets.R2_DOMAIN }}
 
