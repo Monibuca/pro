@@ -3,8 +3,8 @@ module m7s.live/pro
 go 1.20
 
 require (
-	go.uber.org/zap v1.26.0 // indirect
-	m7s.live/engine/v4 v4.15.1
+	go.uber.org/zap v1.27.0 // indirect
+	m7s.live/engine/v4 v4.15.2-0.20240313015240-9dc92eca7b81
 	m7s.live/plugin/debug/v4 v4.0.2
 	m7s.live/plugin/gb28181/v4 v4.4.4
 	m7s.live/plugin/hdl/v4 v4.1.10
@@ -30,17 +30,19 @@ require (
 )
 
 require (
-	m7s.live/plugin/ffmpeg/v4 v4.0.0-20240116021853-16356e0d8ece
+	m7s.live/plugin/ffmpeg/v4 v4.0.0-20240314060623-e595a435cc49
+	m7s.live/plugin/sei/v4 v4.0.0-20240228013136-5e82ceda68ec
 	m7s.live/plugin/voice/v4 v4.0.0-20240207081216-f35fd43bba64
 )
 
 require (
 	github.com/dustin/go-humanize v1.0.1 // indirect
+	github.com/dwdcth/ffmpeg-go v0.0.0-20240112132107-6c9a48149827 // indirect
+	github.com/dwdcth/ffmpeg-go/v6 v6.0.0-20240308071944-b15b3a64b15a // indirect
 	github.com/glebarez/go-sqlite v1.21.2 // indirect
 	github.com/glebarez/sqlite v1.10.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
-	m7s.live/plugin/sei/v4 v4.0.0-20240228013136-5e82ceda68ec // indirect
 	modernc.org/libc v1.22.5 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
@@ -49,20 +51,18 @@ require (
 
 require (
 	github.com/Eyevinn/mp4ff v0.40.1 // indirect
-	github.com/abema/go-mp4 v1.1.1 // indirect
-	github.com/aler9/writerseeker v1.1.0 // indirect
+	github.com/abema/go-mp4 v1.2.0 // indirect
 	github.com/asticode/go-astikit v0.30.0 // indirect
 	github.com/asticode/go-astits v1.13.0 // indirect
-	github.com/bluenviron/gohlslib v1.0.0 // indirect
+	github.com/bluenviron/gohlslib v1.3.0 // indirect
 	github.com/bluenviron/gortsplib/v4 v4.6.2 // indirect
-	github.com/bluenviron/mediacommon v1.5.1 // indirect
+	github.com/bluenviron/mediacommon v1.9.2 // indirect
 	github.com/cnotch/ipchub v1.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/denisbrodbeck/machineid v1.0.1 // indirect
 	github.com/discoviking/fsm v0.0.0-20150126104936-f4a273feecca // indirect
-	github.com/dwdcth/ffmpeg-go v0.0.0-20240112132107-6c9a48149827 // indirect
 	github.com/dwdcth/gomem v0.0.0-20230306045148-938b63115125 // indirect
-	github.com/ebitengine/purego v0.6.0-alpha.2.0.20231129131118-33b97fd6a58b // indirect
+	github.com/ebitengine/purego v0.7.0-alpha.3 // indirect
 	github.com/ghettovoice/gosip v0.0.0-20230903092020-b059959586db // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
 	github.com/go-task/slim-sprig v0.0.0-20230315185526-52ccab3ef572 // indirect
@@ -115,7 +115,7 @@ require (
 	github.com/shirou/gopsutil/v3 v3.23.11 // indirect
 	github.com/shoenig/go-m1cpu v0.1.6 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
-	github.com/stretchr/testify v1.8.4 // indirect
+	github.com/stretchr/testify v1.9.0 // indirect
 	github.com/tevino/abool v1.2.0 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect
@@ -128,13 +128,13 @@ require (
 	golang.org/x/mod v0.14.0 // indirect
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/sync v0.5.0 // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/term v0.15.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.16.1 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/gorm v1.25.5 // indirect
-	m7s.live/plugin/crypto/v4 v4.0.0-20240228010543-d116a994e3b4
+	m7s.live/plugin/crypto/v4 v4.0.0-20240314055458-4eb0f42558fe
 	m7s.live/plugin/ps/v4 v4.1.5-0.20240228014109-36ba11968b92 // indirect
 	m7s.live/plugin/snap/v4 v4.0.8
 )

@@ -36,10 +36,11 @@ import (
 	_ "m7s.live/plugin/room/v4"
 	_ "m7s.live/plugin/rtmp/v4"
 	_ "m7s.live/plugin/rtsp/v4"
+	_ "m7s.live/plugin/sei/v4"
+	_ "m7s.live/plugin/transcode/v4"
+	_ "m7s.live/plugin/voice/v4"
 	_ "m7s.live/plugin/webrtc/v4"
 	_ "m7s.live/plugin/webtransport/v4"
-	_ "m7s.live/plugin/voice/v4"
-	_ "m7s.live/plugin/sei/v4"
 )
 
 var (
@@ -52,6 +53,7 @@ func main() {
 	flag.Parse()
 	_ctx := context.WithValue(context.Background(), "version", version)
 	ctx, cancel := context.WithTimeout(_ctx, time.Hour)
+	// ctx, cancel := context.WithDeadline(_ctx, time.Date(2025, 3, 1, 0, 0, 0, 0, time.UTC))
 	// ctx, cancel := context.WithCancel(_ctx)
 	go util.WaitTerm(cancel)
 	engine.Run(ctx, *conf)
