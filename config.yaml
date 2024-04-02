@@ -1,0 +1,28 @@
+global:
+  loglevel: debug
+voice:
+  enable: false
+hls:
+  enable: false
+llhls:
+  enable: false
+monitor:
+  enable: false
+rtmp:
+  # pull:
+  #   pullonstart:
+  #     live/test1: rtmp://xyrtmp.ys7.com/v3/openlive/E78664287_1_1?expire=1737625884&id=672136730161184768&t=7be286ec3a3f8b39510eedb1ca43471ba7afec49f611562a215c97fe2e216d4d&ev=100
+transcode:
+  enable: false
+  binpath: ffmpeg6.1
+  rules:
+    - prestart: true
+      mode: lib
+      logtofile: true
+      decodeargs: -f flv
+      to:
+        - streampath: $0/trans
+          args: -c:v hevc_videotoolbox
+crypto: # 加密设置
+  encryptlen: 1024 # 加密字节长度
+  filter: .*  # 加密哪些流，正则表达式

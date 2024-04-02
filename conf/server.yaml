@@ -1,5 +1,17 @@
 global:
   loglevel: debug
+  disableall: true
 cascadeserver:
   quic:
     listenaddr: :44944
+sei:
+  enable: true
+  lazy: false
+rtmp:
+  enable: true
+preview:
+  enable: true
+hdl:
+  enable: true
+ui:
+  enable: true
