@@ -28,7 +28,7 @@ require (
 	m7s.live/plugin/cascade/v4 v4.0.0-20240117013320-172ab6a69118
 	m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d
 	m7s.live/plugin/snappro/v4 v4.0.0-20240116022106-3396c29ec58f
-	m7s.live/plugin/transcode/v4 v4.0.0-20240311122719-fce23c98fae3
+	m7s.live/plugin/transcode/v4 v4.0.0-20240407071151-6c59969e0d72
 )
 
 require (
@@ -45,7 +45,7 @@ require (
 	github.com/glebarez/sqlite v1.10.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
-	go.uber.org/mock v0.3.0 // indirect
+	go.uber.org/mock v0.4.0 // indirect
 	modernc.org/libc v1.22.5 // indirect
 	modernc.org/mathutil v1.6.0 // indirect
 	modernc.org/memory v1.5.0 // indirect
@@ -121,7 +121,7 @@ require (
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	golang.org/x/crypto v0.21.0 // indirect
-	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225 // indirect
+	golang.org/x/exp v0.0.0-20240314144324-c7f7c6466f7f // indirect
 	golang.org/x/mod v0.16.0 // indirect
 	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/sync v0.6.0 // indirect

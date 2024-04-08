@@ -15,6 +15,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"os"
 	"time"
 
 	"m7s.live/engine/v4"
@@ -48,6 +49,10 @@ var (
 )
 
 func main() {
+	if os.Args[1] == "version" {
+		fmt.Print(version)
+		return
+	}
 	fmt.Println("start monibuca pro version:", version)
 	conf := flag.String("c", "config.yaml", "config file")
 	flag.Parse()
