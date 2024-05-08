@@ -6,7 +6,7 @@ toolchain go1.21.0
 
 require (
 	go.uber.org/zap v1.27.0 // indirect
-	m7s.live/engine/v4 v4.15.2-0.20240402075636-a44ad2830b3a
+	m7s.live/engine/v4 v4.15.2-0.20240507090929-4a481a016544
 	m7s.live/plugin/debug/v4 v4.0.2
 	m7s.live/plugin/gb28181/v4 v4.4.4
 	m7s.live/plugin/hdl/v4 v4.1.11-0.20240313041408-780dcc14aa1b
@@ -24,7 +24,7 @@ require (
 )
 
 require (
-	m7s.live/plugin/admin/v4 v4.0.0-20240322082437-9102d4bc48bd
+	m7s.live/plugin/admin/v4 v4.0.0-20240429030951-6bd8d8247818
 	m7s.live/plugin/cascade/v4 v4.0.0-20240117013320-172ab6a69118
 	m7s.live/plugin/cdn/v4 v4.0.0-20240116022239-6c4f38e3268d
 	m7s.live/plugin/snappro/v4 v4.0.0-20240116022106-3396c29ec58f
@@ -38,6 +38,7 @@ require (
 )
 
 require (
+	github.com/deepch/vdk v0.0.27 // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/dwdcth/ffmpeg-go v0.0.0-20240112132107-6c9a48149827 // indirect
 	github.com/dwdcth/ffmpeg-go/v6 v6.0.0-20240308071944-b15b3a64b15a // indirect
