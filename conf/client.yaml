@@ -7,7 +7,7 @@ cascadeclient:
   # enable: true
   publish:
     delayclosetimeout: 10s
-  server: 42.193.7.166:44944
+  server: 119.45.116.24:44944
   pull:
     enableregexp: true
     pullonsub:
@@ -16,7 +16,7 @@ cascadeclient:
 #   enable: true
 # preview:
 #   enable: true
-cdn:
-  target:
-    -
-      host: push.wuqianyi.vip
+#cdn:
+#  target:
+#    -
+#      host: push.wuqianyi.vip
